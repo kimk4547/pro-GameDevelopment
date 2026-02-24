@@ -1,17 +1,30 @@
-class Makeup():
-    def __init__(self, applicator, category, how_many):
-        self.applicator = applicator
-        self.category = category
-        self.how_many = how_many
+import pygame
+import time 
+pygame.init()
+WIDTH = 600
+HEIGHT = 600
+screen = pygame.display.set_mode((WIDTH, HEIGHT))
 
-    def showDetails(self):
-        print("The applicator of this product is : ", self.applicator)
-        print("The category of this product is : ", self.category)
-        print("User has this number of the product : ", self.how_many)
+img = pygame.image.load("image4.jpeg")
+image = pygame.transform.scale(img,(WIDTH,HEIGHT))
 
-f1 = Makeup( "spoolie", "lashes", 2)
-f2 = Makeup( "stick", "cheekbones", "1")
 
-f1.showDetails()
+while True:
+    pygame.display.update()
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()
 
-f2.showDetails()
+    screen.fill((0,0,128))
+    screen.blit(image,(0,0))
+    font = pygame.font.SysFont("Times New Roman", 72)
+    
+    text1 = font.render("Happy", True, (0,0,0))
+    screen.blit(text1,(210,180))
+
+    text2 = font.render("Mother's Day!", True, (0,0,0))
+    screen.blit(text2, (160,264))
+    
+
+    pygame.display.update()
+    time.sleep(5)
